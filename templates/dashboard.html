@@ -1,0 +1,15 @@
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Total</th>
+        <th>Donated</th>
+    </tr>
+
+    {% for row in category_report %}
+    <tr>
+        <td>{{ row.category__title }}</td>
+        <td>{{ row.total }}</td>
+        <td>{{ row.donated }}</td>
+    </tr>
+    {% endfor %}
+</table>
