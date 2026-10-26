@@ -1,4 +1,4 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
@@ -46,6 +46,10 @@ def donate_food(request, pk):
 
 
 @login_required
+@permission_required(
+    "inventory.view_food_reports",
+    raise_exception=True
+)
 def dashboard(request):
     category_report = get_category_report()
 

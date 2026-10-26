@@ -80,3 +80,57 @@ FROM "inventory_fooditem"
 INNER JOIN "inventory_category" ON ("inventory_fooditem"."category_id" = "inventory_category"."id")
 INNER JOIN "inventory_foodlocation" ON ("inventory_fooditem"."location_id" = "inventory_foodlocation"."id")
 ORDER BY "inventory_fooditem"."expiry_date" ASC
+
+
+
+
+SELECT "inventory_fooditem"."id", "inventory_fooditem"."title", "inventory_fooditem"."description", "inventory_fooditem"."category_id", "inventory_fooditem"."location_id", "inventory_fooditem"."quantity", "inventory_fooditem"."unit", "inventory_fooditem"."expiry_date", "inventory_fooditem"."status", "inventory_fooditem"."created_by_id", "inventory_fooditem"."created_at", "inventory_fooditem"."updated_at" FROM "inventory_fooditem" ORDER BY "inventory_fooditem"."expiry_date" ASC
+SELECT "inventory_category"."id", "inventory_category"."title" FROM "inventory_category" WHERE "inventory_category"."id" = 1 LIMIT 21
+SELECT "inventory_category"."id", "inventory_category"."title" FROM "inventory_category" WHERE "inventory_category"."id" = 1 LIMIT 21
+SELECT "inventory_category"."id", "inventory_category"."title" FROM "inventory_category" WHERE "inventory_category"."id" = 1 LIMIT 21
+SELECT "inventory_category"."id", "inventory_category"."title" FROM "inventory_category" WHERE "inventory_category"."id" = 1 LIMIT 21
+SELECT "inventory_category"."id", "inventory_category"."title" FROM "inventory_category" WHERE "inventory_category"."id" = 2 LIMIT 21
+Query count 6
+
+
+
+item = FoodItem.objects.all()
+for i in items:
+    print(i.reservation_set.all())
+
+
+
+
+for j in q.captured_queries:
+        print(j["sql"])
+
+
+
+شیر کم چرب
+ماست پرچرب
+شیر
+پنیر لیقوان
+سبزی گشنیز خشک
+Query count 2
+
+
+شیر کم چرب
+لبنیات
+ماست پرچرب
+لبنیات
+شیر
+لبنیات
+پنیر لیقوان
+لبنیات
+سبزی گشنیز خشک
+سبزیجات
+Query count 2
+
+
+SELECT "inventory_fooditem"."id", "inventory_fooditem"."title", "inventory_fooditem"."description", "inventory_fooditem"."category_id", "inventory_fooditem"."location_id", "inventory_fooditem"."quantity", "inventory_fooditem"."unit", "inventory_fooditem"."expiry_date", "inventory_fooditem"."status", "inventory_fooditem"."created_by_id", "inventory_fooditem"."created_at", "inventory_fooditem"."updated_at"
+FROM "inventory_fooditem"
+ORDER BY "inventory_fooditem"."expiry_date" ASC
+
+SELECT "inventory_category"."id", "inventory_category"."title"
+FROM "inventory_category"
+WHERE ("inventory_category"."id") IN ((1), (2))
