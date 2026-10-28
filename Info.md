@@ -134,3 +134,13 @@ ORDER BY "inventory_fooditem"."expiry_date" ASC
 SELECT "inventory_category"."id", "inventory_category"."title"
 FROM "inventory_category"
 WHERE ("inventory_category"."id") IN ((1), (2))
+
+
+
+type of error:
+
+1- validation error
+2- business rule error
+3- permission error
+4- not found
+5- unexpected error
