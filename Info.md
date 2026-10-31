@@ -144,3 +144,9 @@ type of error:
 3- permission error
 4- not found
 5- unexpected error
+
+# test:
+
+Arrange -> init
+ACT -> operation
+Assert -> validate
