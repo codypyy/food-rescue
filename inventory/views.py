@@ -18,6 +18,16 @@ from inventory.services import reserve_food_item, donate_reserved_food
 logger = logging.getLogger(__name__)
 
 
+def food_list(request):
+    foods = FoodItem.objects.all()
+
+    return render(
+        request,
+        "food_list.html",
+        {"foods": foods}
+    )
+
+
 @login_required
 def reserve_food(request, pk):
     
@@ -27,7 +37,8 @@ def reserve_food(request, pk):
 
     if request.method != "POST":
         logger.warning("reservation rejected")
-        return redirect("food_detail", pk=item.pk)
+        # return redirect("food_detail", pk=item.pk)
+        return redirect("food_list")
     
     try:
         reserve_food_item(food_item_id=pk, volunteer=request.user)
@@ -40,7 +51,8 @@ def reserve_food(request, pk):
     else:
         messages.success(request, "رزرو با موفقیت انجام شد.")
 
-    return redirect("food_detail", pk=item.pk)
+    # return redirect("food_detail", pk=item.pk)
+    return redirect("food_list")
 
 
 @login_required
@@ -107,7 +119,6 @@ def create_food(request):
     )
 
 
-
 @login_required
 def update_food(request, pk):
 
@@ -131,3 +142,4 @@ def update_food(request, pk):
         "foodrescue/food_form.html",
         {"form": form}
     )
+

@@ -1,0 +1,15 @@
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Title</th>
+        <th>quantity</th>
+    </tr>
+
+    {% for food in foods %}
+    <tr>
+        <td>{{ food.category }}</td>
+        <td>{{ food.title }}</td>
+        <td>{{ food.quantity }}</td>
+    </tr>
+    {% endfor %}
+</table>
