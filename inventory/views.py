@@ -143,3 +143,16 @@ def update_food(request, pk):
         {"form": form}
     )
 
+
+@login_required
+def cancel_reservation(request, pk):
+    reservation = Reservation.objects.get(pk=pk)
+
+    reservation.status = Reservation.Status.CANCELLED
+    reservation.save()
+
+    food = reservation.food_item
+    food.status = FoodItem.Status.AVAILABLE
+    food.save()
+
+    return redirect("my_reservations")

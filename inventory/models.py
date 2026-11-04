@@ -3,6 +3,8 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+from inventory.querysets import FoodItemQuerySet
+
 
 class Category(models.Model):
     title = models.CharField(max_length=128, unique=True)
@@ -67,6 +69,8 @@ class FoodItem(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    objects = FoodItemQuerySet.as_manager()
 
     class Meta:
         ordering = ["expiry_date"]

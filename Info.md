@@ -153,3 +153,15 @@ Assert -> validate
 
 Test -> reserver_food_item() -> database -> assert
 Test -> URL -> Middleware -> view -> service -> database -> response -> assert
+
+
+# finish
+
+1-python manage.py check
+2-python manage.py makemigrations --check --dry-run
+3-python manage.py test app_name #(inventory)
+4-manually check all views.py function for GET or POST method
+5-permission manager volunteer
+6-rule and validation
+7-find duplicated query
+8-README -> deploy, run project, run test
